@@ -7,7 +7,7 @@ export default class UsersComponent extends React.Component {
         namelist: []
     }
     componentDidMount = async () => {
-        fetch(`http://wbdv-generic-server.herokuapp.com/shh/nuids`, {
+        fetch(`https://wbdv-generic-server.herokuapp.com/shh/nuids`, {
             method: 'GET',
             credentials: "include"
         }).then(reseponse => reseponse.json()).then(profile => this.setState({

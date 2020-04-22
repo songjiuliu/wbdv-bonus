@@ -10,7 +10,7 @@ export default class DomainComponent extends React.Component {
         editingcoursetitle: ''
     }
     componentDidMount = async () => {
-        fetch('http://wbdv-generic-server.herokuapp.com/shh/nuids/' + this.props.nuId + '/domains', {
+        fetch('https://wbdv-generic-server.herokuapp.com/shh/nuids/' + this.props.nuId + '/domains', {
             method: 'GET',
             credentials: "include"
         }).then(reseponse => reseponse.json()).then(profile => this.setState({
@@ -24,7 +24,7 @@ export default class DomainComponent extends React.Component {
         }
         //
 
-        const actualCourse = await fetch("http://wbdv-generic-server.herokuapp.com/api/" + this.props.nuId + '/' + this.state.newcoursetitle, {
+        const actualCourse = await fetch("https://wbdv-generic-server.herokuapp.com/api/" + this.props.nuId + '/' + this.state.newcoursetitle, {
             method: "POST",
             body: JSON.stringify(newCourse),
             headers: {
@@ -32,7 +32,7 @@ export default class DomainComponent extends React.Component {
             }
         }).then(response => response.json())
 
-        const allCourses = await fetch('http://wbdv-generic-server.herokuapp.com/shh/nuids/' + this.props.nuId + '/domains', {
+        const allCourses = await fetch('https://wbdv-generic-server.herokuapp.com/shh/nuids/' + this.props.nuId + '/domains', {
             method: 'GET'
         }).then(reseponse => reseponse.json()).then(profile => this.setState({
             domainlist: profile
@@ -40,11 +40,11 @@ export default class DomainComponent extends React.Component {
     }
     DeleteCourse= async (name) => {
         //"http://wbdv-generic-server.herokuapp.com/schemas/songjiu/hihihi5"
-        const actualCourse = await fetch('http://wbdv-generic-server.herokuapp.com/schemas/' + this.props.nuId +name, {
+        const actualCourse = await fetch('https://wbdv-generic-server.herokuapp.com/schemas/' + this.props.nuId +name, {
             method: 'DELETE'
         }).then(reseponse => reseponse.json())
 
-        const allCourses = await fetch('http://wbdv-generic-server.herokuapp.com/shh/nuids/' + this.props.nuId + '/domains', {
+        const allCourses = await fetch('https://wbdv-generic-server.herokuapp.com/shh/nuids/' + this.props.nuId + '/domains', {
             method: 'GET'
         }).then(reseponse => reseponse.json()).then(profile => this.setState({
             domainlist: profile

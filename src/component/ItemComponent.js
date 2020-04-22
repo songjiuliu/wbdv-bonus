@@ -13,11 +13,11 @@ export default class ItemComponent extends React.Component {
     //http://wbdv-generic-server.herokuapp.com/api/songjiu/lsjq123
     CreateCourse = async () => {
 
-        const actualCourse = await fetch('http://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId, {
+        const actualCourse = await fetch('https://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId, {
             method: 'POST'
         }).then(reseponse => reseponse.json())
 
-        const allCourses = await fetch('http://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId, {
+        const allCourses = await fetch('https://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId, {
             method: 'GET'
         }).then(reseponse => reseponse.json()).then(profile => this.setState({
             itemlist: profile
@@ -26,11 +26,11 @@ export default class ItemComponent extends React.Component {
     //http://wbdv-generic-server.herokuapp.com/api/songjiu/lsjq123/5e9e51226853520017fda80b
     DeleteCourse = async (name) => {
 
-        const actualCourse = await fetch('http://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId + '/' + name, {
+        const actualCourse = await fetch('https://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId + '/' + name, {
             method: 'DELETE'
         }).then(reseponse => reseponse.json())
 
-        const allCourses = await fetch('http://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId, {
+        const allCourses = await fetch('https://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId, {
             method: 'GET'
         }).then(reseponse => reseponse.json()).then(profile => this.setState({
             itemlist: profile
@@ -39,7 +39,7 @@ export default class ItemComponent extends React.Component {
     UpdateCourse = async (name) => {
         //"http://wbdv-generic-server.herokuapp.com/schemas/songjiu/hihihi5"
         //alert('http://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId + '/' + name)
-        const actualCourse = await fetch('http://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId + '/' + name, {
+        const actualCourse = await fetch('https://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId + '/' + name, {
             method: 'PUT',
             body: JSON.stringify(this.state.profile),
             headers: {
@@ -48,7 +48,7 @@ export default class ItemComponent extends React.Component {
         }).then(reseponse => reseponse.json())
         if (this.state.newtitle != '') {
             const newobj = {[this.state.newtitle]: this.state.newcontent}
-            const actualCourse = await fetch('http://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId + '/' + name, {
+            const actualCourse = await fetch('https://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId + '/' + name, {
                 method: 'PUT',
                 body: JSON.stringify(newobj),
                 headers: {
@@ -56,14 +56,14 @@ export default class ItemComponent extends React.Component {
                 }
             }).then(reseponse => reseponse.json())
         }
-        const allCourses = await fetch('http://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId, {
+        const allCourses = await fetch('https://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId, {
             method: 'GET'
         }).then(reseponse => reseponse.json()).then(profile => this.setState({
             itemlist: profile
         })).then(status => console.log(this.state.domainlist))
     }
     componentDidMount = async () => {
-        fetch('http://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId, {
+        fetch('https://wbdv-generic-server.herokuapp.com/api/' + this.props.nuId + '/' + this.props.itemId, {
             method: 'GET',
             credentials: "include"
         }).then(reseponse => reseponse.json()).then(profile => this.setState({
