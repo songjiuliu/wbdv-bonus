@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import CourseManagementComponent from "./component/CourseManagementComponent";
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CourseManagementComponent />
   </React.StrictMode>,
   document.getElementById('root')
 );
